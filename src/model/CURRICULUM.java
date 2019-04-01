@@ -10,9 +10,6 @@ public class CURRICULUM {
     private LocalDate startdate;
     private List<Course> courses;
 
-    public CURRICULUM() {
-    }
-
     public CURRICULUM(String CURRICULUMname, LocalDate startdate, List<Course> courses) {
         this.CURRICULUMname = CURRICULUMname;
         this.startdate = startdate;

@@ -1,22 +1,21 @@
 package model;
 
-import java.util.List;
 
-public class MARK {
-    private int marks;
 
-    public MARK() {
-    }
+public enum  Marks {
+    ONE(1),
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5);
+    private final int marks;
 
-    public MARK(int marks) {
-        this.marks = marks;
-    }
 
     public int getMarks() {
         return marks;
     }
 
-    public void setMarks(int marks) {
+    Marks(int marks) {
         this.marks = marks;
     }
 
@@ -25,3 +24,5 @@ public class MARK {
         return "Оценка: " + marks;
     }
 }
+
+

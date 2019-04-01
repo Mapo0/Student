@@ -5,16 +5,14 @@ import java.util.List;
 public class Student {
     private String fio ;
     private String status;
-    private List<MARK> marks;
+    private List<Marks> marks;
     private CURRICULUM curriculum;
 
-    public Student() {
-    }
 
-    public Student(String fio, String status, List<MARK> marks, CURRICULUM curriculum) {
+    public Student(String fio, CURRICULUM curriculum, List<Marks> marks, String status) {
         this.fio = fio;
         this.status = status;
-        this.marks = marks;
+        this.marks = this.marks;
         this.curriculum = curriculum;
     }
 
@@ -34,11 +32,11 @@ public class Student {
         this.status = status;
     }
 
-    public List<MARK> getMarks() {
+    public List<Marks> getMarks() {
         return marks;
     }
 
-    public void setMarks(List<MARK> marks) {
+    public void setMarks(List<Marks> marks) {
         this.marks = marks;
     }
 

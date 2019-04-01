@@ -44,7 +44,7 @@ public class Generator {
     private  List<Marks> generateMarks(int duration){
       List<Marks> marks = new ArrayList<>();
       for (int i=0; i<= new Random().nextInt(duration); i++){
-          marks.add(Marks.values() [new Random().nextInt(5)]);
+          marks.add(Marks.values() [new Random().nextInt(4)]);
       }
       return marks;
     }
@@ -52,7 +52,7 @@ public class Generator {
     private  void generateStudent(){
       generateCurriculum();
       for (String student: studentName){
-          int currentIndex = new Random().nextInt(4);
+          int currentIndex = new Random().nextInt(2);
           studentsService.addStudents(new Student(student, curriculumService.getCurricula().get(currentIndex),
                   generateMarks(curriculumService.getCurricula().get(currentIndex).getCourses().stream().mapToInt(Course::getCoursetime).sum()/8),
                   "Может продолжить обучение"));

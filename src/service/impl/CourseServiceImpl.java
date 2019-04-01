@@ -17,6 +17,9 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void addCourse(List<Course> courses) {
+        for (Course course: courses){
+            courseRepository.addCourse(course);
+        }
 
     }
 

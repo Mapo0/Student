@@ -12,7 +12,7 @@ public class Student {
     public Student(String fio, CURRICULUM curriculum, List<Marks> marks, String status) {
         this.fio = fio;
         this.status = status;
-        this.marks = this.marks;
+        this.marks = marks;
         this.curriculum = curriculum;
     }
 

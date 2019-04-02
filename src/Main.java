@@ -8,6 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         StudentsService studentsService =generator.getStudentsService();
-        System.out.println(studentsService.getStudents());
+        System.out.println(studentsService.getStudents().get(0));
+//        System.out.println(studentsService.averageMarks(studentsService.getStudents().get(0)));
+        System.out.print(studentsService.durationCourse(studentsService.getStudents().get(0)));
     }
 }

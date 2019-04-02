@@ -1,5 +1,7 @@
 package service.impl;
 
+import model.Course;
+import model.Marks;
 import model.Student;
 import repository.StudentsRepository;
 import repository.impl.StudentsRepositoryImpl;
@@ -22,8 +24,31 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public void middleMarks(Student student) { studentsRepository.getStudents().get(1);
+    public double averageMarks(Student student) {
+        return Math.round(student.getMarks().stream()
+                .mapToInt(Marks::getMarks)
+                .average()
+                .orElse(0));
+    }
+
+    @Override
+    public int timeToEnd(Student student) {
+        return durationCourse(student)-student.getMarks().size() ;
+    }
+
+    @Override
+    public void upDrop(Student student) {
 
     }
+
+    @Override
+    public int durationCourse(Student student) {
+        int duration =0;
+        for (Course course : student.getCurriculum().getCourses()) {
+        duration +=course.getCoursetime();
+        }
+        return duration/8;
+    }
+
 
 }

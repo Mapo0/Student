@@ -44,7 +44,7 @@ public class Generator {
     private  List<Marks> generateMarks(int duration){
       List<Marks> marks = new ArrayList<>();
       for (int i=0; i<= new Random().nextInt(duration); i++){
-          marks.add(Marks.values() [new Random().nextInt(4)]);
+          marks.add(Marks.values() [new Random().nextInt(5)]);
       }
       return marks;
     }

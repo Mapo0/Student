@@ -19,4 +19,9 @@ public class StudentsRepositoryImpl implements StudentsRepository {
         students.add(student);
     }
 
+    @Override
+    public void updateStatusStudent(Student student) {
+        student.setStatus("Отчислить");
+    }
+
 }

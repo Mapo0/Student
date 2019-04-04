@@ -7,7 +7,11 @@ import repository.StudentsRepository;
 import repository.impl.StudentsRepositoryImpl;
 import service.StudentsService;
 
+
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.stream.Collectors;
+
 
 public class StudentsServiceImpl implements StudentsService {
     private StudentsRepository studentsRepository = new StudentsRepositoryImpl();
@@ -23,32 +27,60 @@ public class StudentsServiceImpl implements StudentsService {
 
     }
 
+
     @Override
     public double averageMarks(Student student) {
-        return Math.round(student.getMarks().stream()
+        return (student.getMarks().stream()
                 .mapToInt(Marks::getMarks)
                 .average()
                 .orElse(0));
     }
 
     @Override
-    public int timeToEnd(Student student) {
-        return durationCourse(student)-student.getMarks().size() ;
+    public int countCourseInDays(Student student) {
+        int totalHours = student.getCurriculum().
+                getCourses()
+                .stream()
+                .mapToInt(Course::getCourseHours)
+                .sum();
+
+        int workingHoursInADay = 8;
+
+        return totalHours / workingHoursInADay;
     }
 
     @Override
-    public void upDrop(Student student) {
+    public boolean isGoodStudent(Student student) {
+        return upDrop(student ) >= 4.5;
 
     }
 
     @Override
-    public int durationCourse(Student student) {
-        int duration =0;
-        for (Course course : student.getCurriculum().getCourses()) {
-        duration +=course.getCoursetime();
-        }
-        return duration/8;
+    public List<Student> getFilterGoodStudents(List<Student> students) {
+        return students
+                .stream()
+                .filter(this::isGoodStudent)
+                .collect(Collectors.toList());
     }
+
+
+    @Override
+    public int countDaysToEnd(Student student) {
+
+        return countCourseInDays(student) - student.getMarks().size() ;
+    }
+
+    @Override
+    public double upDrop(Student student) {
+        double sumMarks = student
+                .getMarks()
+                .stream()
+                .mapToInt(Marks::getMarks)
+                .sum();
+        return ((sumMarks + 5 * countDaysToEnd(student))/ countCourseInDays(student));
+
+    }
+
 
 
 }

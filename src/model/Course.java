@@ -21,7 +21,7 @@ public class Course {
         this.coursename = coursename;
     }
 
-    public int getCoursetime() {
+    public int getCourseHours() {
         return coursetime;
     }
 

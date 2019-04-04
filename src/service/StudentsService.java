@@ -10,11 +10,17 @@ public interface StudentsService {
 
     void addStudents(Student student);
 
-    double averageMarks (Student student);
+    double averageMarks(Student student);
 
-   public int timeToEnd (Student student);
+    int countDaysToEnd(Student student);
 
-    void upDrop (Student student);
+    double upDrop(Student student);
 
-    public int durationCourse (Student student);
+    int countCourseInDays(Student student);
+
+   boolean isGoodStudent (Student student);
+
+    List<Student> getFilterGoodStudents (List<Student> students);
+
+
 }

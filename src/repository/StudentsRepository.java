@@ -9,4 +9,6 @@ public interface StudentsRepository {
     List<Student> getStudents();
 
     void addStudents(Student student);
+
+    void updateStatusStudent (Student student);
 }

@@ -15,13 +15,23 @@ import java.util.List;
 import java.util.Random;
 
 public class Generator {
-    private StudentsService studentsService = new StudentsServiceImpl();
-    private CourseService courseService = new CourseServiceImpl();
-    private CurriculumService curriculumService = new CurriculumServiceImpl();
+//    private StudentsService studentsService = new StudentsServiceImpl();
+//    private CourseService courseService = new CourseServiceImpl();
+//    private CurriculumService curriculumService = new CurriculumServiceImpl();
 
     private static final String [] studentName ={"Marat ","Jeka","Vova", "Maksim","Kira"};
     private static final String [] courseName = {"Технология Java Servlets","Struts Framework","Spring Framework","Hibernate","JDBC","JAXB","Обзор технологий Java","Библиотеки commons","Библиотека JFC/Swing"};
     private static final String [] curriculumName = {" J2EE Developer"," Java Developer"};
+
+    private StudentsService studentsService;
+    private CourseService courseService;
+    private CurriculumService curriculumService;
+
+    public Generator() {
+        this.studentsService = new StudentsServiceImpl();
+        this.courseService = new CourseServiceImpl();
+        this.curriculumService = new CurriculumServiceImpl();
+    }
 
   private List<Course> generateCourse (){
       List<Course>  courses = new ArrayList<>();

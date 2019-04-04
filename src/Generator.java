@@ -19,7 +19,7 @@ public class Generator {
     private CourseService courseService = new CourseServiceImpl();
     private CurriculumService curriculumService = new CurriculumServiceImpl();
 
-    private static final String [] studentName ={"Marat","Jeka","Vova", "Maksim","Kira"};
+    private static final String [] studentName ={"Marat ","Jeka","Vova", "Maksim","Kira"};
     private static final String [] courseName = {"Технология Java Servlets","Struts Framework","Spring Framework","Hibernate","JDBC","JAXB","Обзор технологий Java","Библиотеки commons","Библиотека JFC/Swing"};
     private static final String [] curriculumName = {" J2EE Developer"," Java Developer"};
 

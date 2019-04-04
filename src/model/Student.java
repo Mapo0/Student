@@ -1,5 +1,8 @@
 package model;
 
+import service.impl.StudentsServiceImpl;
+
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Student {
@@ -8,6 +11,7 @@ public class Student {
     private List<Marks> marks;
     private CURRICULUM curriculum;
 
+    DecimalFormat df = new DecimalFormat("#.##");
 
     public Student(String fio, CURRICULUM curriculum, List<Marks> marks, String status) {
         this.fio = fio;
@@ -50,6 +54,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Имя: " + fio + " Статус студента: "  + status + " Оценки: " + marks + " Учебный план: " + curriculum ;
+        return "Имя: " + fio + " Статус студента: "  + getStatus() + " средняя оценка: "
+                + df.format(new StudentsServiceImpl().upDrop(this))
+                + " дней до конца обучения: "
+                + new StudentsServiceImpl().countDaysToEnd(this) ;
     }
+
+
 }

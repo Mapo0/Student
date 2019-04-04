@@ -8,6 +8,7 @@ import repository.impl.StudentsRepositoryImpl;
 import service.StudentsService;
 
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
@@ -50,16 +51,36 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public boolean isGoodStudent(Student student) {
-        return upDrop(student ) >= 4.5;
+    public void isGoodStudent(Student student) {
+        if (upDrop(student ) < 4.5){
+            student.setStatus("отчислить");
+        }
 
     }
 
     @Override
     public List<Student> getFilterGoodStudents(List<Student> students) {
+        for (Student student :students
+             ) {
+            isGoodStudent(student);
+
+        }
+        return students;
+    }
+
+    @Override
+    public List<Student> getFilterAverageMarks(List<Student> students) {
         return students
                 .stream()
-                .filter(this::isGoodStudent)
+                .sorted(Comparator.comparingDouble(this::averageMarks))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Student> getFilterDaysToEnd(List<Student> students) {
+        return students
+                .stream()
+                .sorted(Comparator.comparingInt(this::countDaysToEnd))
                 .collect(Collectors.toList());
     }
 

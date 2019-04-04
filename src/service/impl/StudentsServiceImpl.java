@@ -72,7 +72,7 @@ public class StudentsServiceImpl implements StudentsService {
     public List<Student> getFilterAverageMarks(List<Student> students) {
         return students
                 .stream()
-                .sorted(Comparator.comparingDouble(this::averageMarks))
+                .sorted(Comparator.comparingDouble(this::upDrop))
                 .collect(Collectors.toList());
     }
 

@@ -28,7 +28,7 @@ public class Generator {
     private CurriculumService curriculumService;
 
     public Generator() {
-        this.studentsService = new StudentsServiceImpl();
+        this.studentsService = Factory.getSturentService();
         this.courseService = new CourseServiceImpl();
         this.curriculumService = new CurriculumServiceImpl();
     }

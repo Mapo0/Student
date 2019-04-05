@@ -23,11 +23,11 @@ public class Generator {
     private static final String [] courseName = {"Технология Java Servlets","Struts Framework","Spring Framework","Hibernate","JDBC","JAXB","Обзор технологий Java","Библиотеки commons","Библиотека JFC/Swing"};
     private static final String [] curriculumName = {" J2EE Developer"," Java Developer"};
 
-    private StudentsService studentsService;
-    private CourseService courseService;
-    private CurriculumService curriculumService;
+    private final StudentsService studentsService;
+    private final CourseService courseService;
+    private final CurriculumService curriculumService;
 
-    public Generator() {
+    public Generator( ) {
         this.studentsService = new StudentsServiceImpl();
         this.courseService = new CourseServiceImpl();
         this.curriculumService = new CurriculumServiceImpl();

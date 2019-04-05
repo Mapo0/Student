@@ -18,13 +18,13 @@ public interface StudentsService {
 
     int countCourseInDays(Student student);
 
-    void isGoodStudent(Student student);
+    void isBadStudent(Student student);
 
-    List<Student> getFilterGoodStudents(List<Student> students);
+    List<Student> getSortedBadStudents(List<Student> students);
 
-    List<Student> getFilterAverageMarks (List<Student> students);
+    List<Student> getSortedAverageMarks (List<Student> students);
 
-    List<Student> getFilterDaysToEnd (List<Student> students);
+    List<Student> getSortedDaysToEnd (List<Student> students);
 
 
 }

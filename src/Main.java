@@ -11,16 +11,16 @@ public class Main {
         StudentsService studentsService =generator.getStudentsService();
 
 
-        studentsService.getFilterGoodStudents(studentsService.getStudents()).forEach(System.out :: println);
+        studentsService.getSortedBadStudents(studentsService.getStudents()).forEach(System.out :: println);
 
         System.out.println("Список студентов отсортированный , что не будут отчислены:");
-        studentsService.getFilterGoodStudents(studentsService.getStudents()).forEach(System.out::println);
+        studentsService.getSortedBadStudents(studentsService.getStudents()).forEach(System.out::println);
 
         System.out.println("Список студентов отсортированных по cредней оценке:");
-        studentsService.getFilterAverageMarks(studentsService.getStudents()).forEach(System.out :: println);
+        studentsService.getSortedAverageMarks(studentsService.getStudents()).forEach(System.out :: println);
 
         System.out.println("Список студентов отсортированных по дням до конца обуче6ния:");
-        studentsService.getFilterDaysToEnd(studentsService.getStudents()).forEach(System.out::println);
+        studentsService.getSortedDaysToEnd(studentsService.getStudents()).forEach(System.out::println);
 
 
 

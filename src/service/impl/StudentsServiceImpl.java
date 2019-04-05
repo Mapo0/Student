@@ -52,7 +52,7 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public void isGoodStudent(Student student) {
+    public void isBadStudent(Student student) {
         if (upDrop(student ) < 4.5){
             student.setStatus("отчислить");
         }
@@ -60,17 +60,17 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public List<Student> getFilterGoodStudents(List<Student> students) {
+    public List<Student> getSortedBadStudents(List<Student> students) {
         for (Student student :students
              ) {
-            isGoodStudent(student);
+            isBadStudent(student);
 
         }
         return students;
     }
 
     @Override
-    public List<Student> getFilterAverageMarks(List<Student> students) {
+    public List<Student> getSortedAverageMarks(List<Student> students) {
         return students
                 .stream()
                 .sorted(Comparator.comparingDouble(this::upDrop))
@@ -78,7 +78,7 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public List<Student> getFilterDaysToEnd(List<Student> students) {
+    public List<Student> getSortedDaysToEnd(List<Student> students) {
         return students
                 .stream()
                 .sorted(Comparator.comparingInt(this::countDaysToEnd))
